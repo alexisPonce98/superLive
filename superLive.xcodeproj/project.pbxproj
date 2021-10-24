@@ -13,6 +13,7 @@
 		B0A59C9B272067FE00EBD0C1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A59C9A272067FE00EBD0C1 /* Preview Assets.xcassets */; };
 		B0A59C9D272067FE00EBD0C1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A59C9C272067FE00EBD0C1 /* Persistence.swift */; };
 		B0A59CA0272067FE00EBD0C1 /* superLive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0A59C9E272067FE00EBD0C1 /* superLive.xcdatamodeld */; };
+		B0A59CA827206DD300EBD0C1 /* HaishinKit in Frameworks */ = {isa = PBXBuildFile; productRef = B0A59CA727206DD300EBD0C1 /* HaishinKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A59CA827206DD300EBD0C1 /* HaishinKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +91,9 @@
 			dependencies = (
 			);
 			name = superLive;
+			packageProductDependencies = (
+				B0A59CA727206DD300EBD0C1 /* HaishinKit */,
+			);
 			productName = superLive;
 			productReference = B0A59C90272067FC00EBD0C1 /* superLive.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +122,9 @@
 				Base,
 			);
 			mainGroup = B0A59C87272067FC00EBD0C1;
+			packageReferences = (
+				B0A59CA627206DD300EBD0C1 /* XCRemoteSwiftPackageReference "HaishinKit" */,
+			);
 			productRefGroup = B0A59C91272067FC00EBD0C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +288,8 @@
 				DEVELOPMENT_TEAM = 579DX7MBBF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow SuperLIve access to camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow for the use of microphone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -310,6 +320,8 @@
 				DEVELOPMENT_TEAM = 579DX7MBBF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow SuperLIve access to camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow for the use of microphone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B0A59CA627206DD300EBD0C1 /* XCRemoteSwiftPackageReference "HaishinKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shogo4405/HaishinKit.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0A59CA727206DD300EBD0C1 /* HaishinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0A59CA627206DD300EBD0C1 /* XCRemoteSwiftPackageReference "HaishinKit" */;
+			productName = HaishinKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B0A59C9E272067FE00EBD0C1 /* superLive.xcdatamodeld */ = {
