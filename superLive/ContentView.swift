@@ -23,6 +23,10 @@ struct ContentView: View {
 struct camerPreview: View{
     @StateObject var camera = CameraModel()
     @StateObject var stream = Stream()
+    @State var mapModel = MapModel()
+    @State var mapView :MapView!
+    @State var recordButton = "Start Recording"
+    @State var workoutButton = "Start Workout"
      var semaphore = DispatchSemaphore(value: 1)
     var body: some View{
         ZStack{
@@ -47,23 +51,43 @@ struct camerPreview: View{
             backCameraPreview(camera: camera)
             VStack{
                 HStack(){
-                    RoundedRectangle(cornerRadius: 20)
+                        MapView(mapModel: mapModel)
                         .foregroundColor(.orange)
-                        .frame(width: 100, height: 100, alignment: .topLeading)
+                        .frame(width: 190, height: 120, alignment: .topLeading)
 
                     Spacer()
+                    Text("Distance: \(mapModel.getDistance())")
+                        .padding()
+                        
+                        
+                    Spacer()
                 }
-               Spacer().frame(width: 5).background(Color.orange)
+               Spacer()
                 HStack(){
-                    Button("Start recording"){
+                    VStack{
+                    Button(recordButton){
                         if !stream.isStreaming{
                             stream.startStream()
                             stream.isStreaming.toggle()
+                            recordButton = "Stop Recording"
                         }else{
+                            recordButton = "Start Recording"
                             stream.stopRecording()
                         }
                     }
                     .padding(.all)
+                        Button(workoutButton){
+                            if mapModel.workoutStarted{
+                                workoutButton = "Start Workout"
+                                mapModel.workoutStarted.toggle()
+                            }else{
+                                workoutButton = "Stop Workout"
+                             mapModel.workoutStarted.toggle()
+                                
+                            }
+                           
+                        }
+                    }
                     //Spacer().frame(width: 5).background(Color.red)
                     
                     frontCameraPreview(camera: camera).background(Color.black)
@@ -235,20 +259,23 @@ class Stream: ObservableObject{
             .bitrate: 32 * 1024,
             .actualBitrate: 96000,
         ]
+
         self.rtmpStream.recorderSettings = [// sets up the recording settings
             AVMediaType.audio: [
                 AVNumberOfChannelsKey: 0,
                 AVSampleRateKey: 0
             ]
         ]
+        
         //let streamURL = "rtmp://phx.contribute.live-video.net/app/"
 //        let streamURL = "rtmps://a.rtmps.youtube.com/live2/"// url where the stream will be sent to
 //        //let pub = "live_205645450_W0qr5v0uoq7oQHw4SMgYSesOq7UODk"
 //        let pub = "6yay-erur-6kxs-py4g-drvq"// the key for the account where the stream is being sent
 //        self.rtmpConnection.connect(streamURL, arguments: nil)// connects to the stream url
 //        self.rtmpStream.publish(pub)// sends the public key
-        self.rtmpConnection.connect("rtmps://a.rtmps.youtube.com/live2/", arguments: nil);
-        self.rtmpStream.publish("6yay-erur-6kxs-py4g-drvq");
+        self.rtmpConnection.connect("rtmps://b.rtmps.youtube.com/live2?backup=1/",arguments: nil);
+        //self.rtmpStream.publish("a96x-69j1-4e7u-zqg9-ac2g");
+        self.rtmpStream.publish("xg3y-25t4-97d3-f5qg-dfjm")
         self.rtmpStream.attachAudio(nil)
         self.rtmpStream.attachCamera(nil)
     }
@@ -260,7 +287,7 @@ class Stream: ObservableObject{
             }
             switch sampleBufferType{
             case .video:
-             
+
                 if let description = CMSampleBufferGetFormatDescription(sampleBuffer){// stores the sample buffer format description
                     let dimensions = CMVideoFormatDescriptionGetDimensions(description)// stores the dimensions of the sample buffer
                     self.rtmpStream.videoSettings = [
@@ -272,17 +299,16 @@ class Stream: ObservableObject{
                 self.rtmpStream.appendSampleBuffer(sampleBuffer, withType: .video);
                 return
             case .audioApp:
-               
+
                 return
             case .audioMic:
-                
                 self.rtmpStream.appendSampleBuffer(sampleBuffer, withType: .audio)
                 return
             @unknown default:
                 print("Got weird input")
             }
         }completionHandler : { error in
-            
+
         }
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B090F6A2273F45BA00B4E27B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B090F6A1273F45BA00B4E27B /* MapView.swift */; };
 		B0A59C94272067FC00EBD0C1 /* superLiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A59C93272067FC00EBD0C1 /* superLiveApp.swift */; };
 		B0A59C96272067FC00EBD0C1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A59C95272067FC00EBD0C1 /* ContentView.swift */; };
 		B0A59C98272067FE00EBD0C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A59C97272067FE00EBD0C1 /* Assets.xcassets */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B090F6A1273F45BA00B4E27B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B090F6A3273F638100B4E27B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B0A59C90272067FC00EBD0C1 /* superLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = superLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A59C93272067FC00EBD0C1 /* superLiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = superLiveApp.swift; sourceTree = "<group>"; };
 		B0A59C95272067FC00EBD0C1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,8 +60,10 @@
 		B0A59C92272067FC00EBD0C1 /* superLive */ = {
 			isa = PBXGroup;
 			children = (
+				B090F6A3273F638100B4E27B /* Info.plist */,
 				B0A59C93272067FC00EBD0C1 /* superLiveApp.swift */,
 				B0A59C95272067FC00EBD0C1 /* ContentView.swift */,
+				B090F6A1273F45BA00B4E27B /* MapView.swift */,
 				B0A59C97272067FE00EBD0C1 /* Assets.xcassets */,
 				B0A59C9C272067FE00EBD0C1 /* Persistence.swift */,
 				B0A59C9E272067FE00EBD0C1 /* superLive.xcdatamodeld */,
@@ -152,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0A59C9D272067FE00EBD0C1 /* Persistence.swift in Sources */,
+				B090F6A2273F45BA00B4E27B /* MapView.swift in Sources */,
 				B0A59CA0272067FE00EBD0C1 /* superLive.xcdatamodeld in Sources */,
 				B0A59C96272067FC00EBD0C1 /* ContentView.swift in Sources */,
 				B0A59C94272067FC00EBD0C1 /* superLiveApp.swift in Sources */,
@@ -288,7 +294,11 @@
 				DEVELOPMENT_TEAM = 579DX7MBBF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = superLive/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow SuperLIve access to camera";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow SuperLive access to your location to show on the map";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow SuperLive access to your location to shwo on the map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow SuperLive access to your location to shwo on the map";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow for the use of microphone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -320,7 +330,11 @@
 				DEVELOPMENT_TEAM = 579DX7MBBF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = superLive/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow SuperLIve access to camera";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow SuperLive access to your location to show on the map";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow SuperLive access to your location to shwo on the map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow SuperLive access to your location to shwo on the map";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow for the use of microphone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
